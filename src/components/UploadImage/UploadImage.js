@@ -43,6 +43,7 @@ export default class UploadImage extends Component {
             
 
             <img src={this.state.uploadedFileUrl} alt=""/>
+            <a href={this.state.uploadedFileUrl}>{this.state.uploadedFileUrl}</a>
             </div>
             </div>
         )
