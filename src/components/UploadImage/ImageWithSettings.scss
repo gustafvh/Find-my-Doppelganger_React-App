@@ -1,0 +1,68 @@
+h4 {}
+
+
+
+.container {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    width: 75vw;
+
+}
+
+.first-column {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-column {
+    display: flex;
+    flex-grow: 2;
+    flex-direction: column;
+    text-align: left;
+}
+
+.image {
+    width: 250px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    background-color: #C8C8C8;
+    border: 4px solid #FFF;
+    margin: 20px 0;
+}
+
+.image-name {
+    color: #BDBDBD;
+    font-family: "Open Sans";
+    font-size: 17px;
+}
+
+.settings-option__container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.settings-option {
+
+    font-weight: bold;
+    height: 46px;
+    width: 155px;
+    border-radius: 15px;
+    background-color: #F2F2F2;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0px;
+    margin-right: 20px;
+
+    cursor: pointer;
+}
+
+.settings-option--selected {
+    background-color: #FCEA2B;
+}

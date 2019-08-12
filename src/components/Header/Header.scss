@@ -1,0 +1,22 @@
+.header__container {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.header__small-title {
+    text-transform: uppercase;
+    color: #BDBDBD;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    margin: 0;
+}
+
+.header__big-title {
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 66px;
+    margin: 0;
+}

@@ -1,19 +1,17 @@
 import React from 'react';
-import UploadImage from './UploadImage/UploadImage';
+import UploadImage from './UploadImage/UploadImage.js';
 import "./App.scss";
+import Header from './Header/Header.js';
+import Footer from './Footer/Footer.js';
 
 function App() {
   return (
     <div>
-    
-    
-    
-
-    <div className="header__container">
-    <h3>Find my </h3> 
-    <h1>Doppelganger </h1> 
-    <UploadImage/>
-    </div>
+      <div className="app__container">
+        <Header/>
+        <UploadImage/>
+        <Footer/>
+      </div>
     </div>
   );
 }
