@@ -8,7 +8,7 @@ firebase.initializeApp({
   databaseURL: Environment["FIREBASE_DATABASE_URL"],
   projectId: Environment["FIREBASE_PROJECT_ID"],
   storageBucket: Environment["FIREBASE_STORAGE_BUCKET"],
-  messagingSenderId: Environment["FIREBASE_MESSAGING_SENDER_ID"]
+  messagingSenderId: Environment["FIREBASE_MESSAGING_SENDER_ID"],
 });
 
 export const firestore = firebase.database();

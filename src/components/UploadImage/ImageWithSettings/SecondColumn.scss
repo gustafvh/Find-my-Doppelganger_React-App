@@ -1,8 +1,32 @@
+.rendered-images__container {
+    overflow-y: scroll;
+}
+
+.rendered-images__single-image {
+    height: 100px;
+
+}
+
+
+
+
+.second-column {
+    max-width: 40vw;
+
+    p {
+        font-size: 14px;
+        font-weight: normal;
+        color: #aaa;
+        max-width: 400px;
+    }
+}
+
+
+
+
 .next-step__container {
     justify-content: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+
 }
 
 
@@ -21,7 +45,7 @@
     justify-content: center;
     display: flex;
     padding: 20px 40px;
-    margin: 20px;
+    margin: 20px 0;
 
     transition: all 0.2s ease;
 }
