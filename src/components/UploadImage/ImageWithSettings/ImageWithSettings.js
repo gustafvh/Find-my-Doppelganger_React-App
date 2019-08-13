@@ -9,9 +9,9 @@ export default class ImageWithSettings extends Component {
             <div className="container">
                 <div className="first-column">
                     <img className="image" src={this.props.uploadedFileUrl} alt=""/>
-                    <a className="image-name" href={this.props.uploadedFileUrl}>{this.props.imageName}</a> 
+                    <p> Your image </p> 
                 </div>
-                <SecondColumn submitToCloudVisionAPI={this.props.submitToCloudVisionAPI} gettingAPIResponse={this.props.gettingAPIResponse} googleResponse={this.props.googleResponse} similairImagesUrls={this.props.similairImagesUrls} />
+                <SecondColumn submitToCloudVisionAPI={this.props.submitToCloudVisionAPI} gettingAPIResponse={this.props.gettingAPIResponse} googleResponse={this.props.googleResponse} similairImagesUrls={this.props.similairImagesUrls} imageLabels={this.props.imageLabels}/>
             </div>
         </div>
         )

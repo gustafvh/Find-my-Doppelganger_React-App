@@ -15,21 +15,14 @@ export default class UploadImage extends Component {
         super(props);
     
         this.state = {
-          uploadedFileUrl: "https://firebasestorage.googleapis.com/v0/b/doppelganger-13149.appspot.com/o/UploadedImages%2Fppicture.jpg?alt=media&token=a17661dc-81e7-4963-a439-d4cf3f39f701",
+          uploadedFileUrl: "",
           uploadingImage: false,
-          imageHasUploaded: true,
-          imageName: "ppicture.png",
-          googleResponse: "efefef",
-          similairImagesUrls: ["https://artsemerson.org/ArticleMedia/Images/Pavarotti_TerryONeill12%20tmb.jpg",
-          "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=10156158373900814",
-          "https://pbs.twimg.com/media/DnSazLVW4AA8o_8.jpg:large",
-          "https://www.beards.org/home/wp-content/uploads/2011/02/blog_steven008.jpg",
-          "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=10156687785081328",
-          "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1696703333977968",
-          "https://scontent-frx5-1.cdninstagram.com/vp/e6f9b29ec26d96eff5f40771f4018183/5DCBA8A6/t51.2885-15/e35/37000907_264945217616635_8525346577450008576_n.jpg?_nc_ht=scontent-frx5-1.cdninstagram.com",
-          "https://scontent-sin6-1.cdninstagram.com/vp/3a54bf38ae37e388dc9a3b94b36dd1f1/5D88C53C/t51.2885-15/e35/62271630_657504298046633_3179886387727820689_n.jpg?_nc_ht=scontent-sin6-1.cdninstagram.com&se=7&ig…",
-          "https://pbs.twimg.com/media/D-xKs_AXkAA8UJf.jpg"
-          ]
+          imageHasUploaded: false,
+          imageName: "",
+          googleResponse: undefined,
+          similairImagesUrls: [
+          ],
+          imageLabels: []
         };
     }
 
@@ -64,16 +57,16 @@ export default class UploadImage extends Component {
             requests: [
               {
                 features: [
-                //   { type: "LABEL_DETECTION", maxResults: 10 },
+                   { type: "LABEL_DETECTION", maxResults: 5 },
                 //   { type: "LANDMARK_DETECTION", maxResults: 5 },
-                //   { type: "FACE_DETECTION", maxResults: 5 },
+                    { type: "FACE_DETECTION", maxResults: 5 },
                 //   { type: "LOGO_DETECTION", maxResults: 5 },
                 //   { type: "TEXT_DETECTION", maxResults: 5 },
                 //   { type: "DOCUMENT_TEXT_DETECTION", maxResults: 5 },
                 //   { type: "SAFE_SEARCH_DETECTION", maxResults: 5 },
                 //   { type: "IMAGE_PROPERTIES", maxResults: 5 },
                 //   { type: "CROP_HINTS", maxResults: 5 },
-                  { type: "WEB_DETECTION", maxResults: 10 }
+                  { type: "WEB_DETECTION", maxResults: 30 }
                 ],
                 image: {
                   source: {
@@ -98,17 +91,27 @@ export default class UploadImage extends Component {
           let responseJson = await response.json();
           
           let similairImagesUrls = [];
+          let imageLabels = [];
+
           for (let i = 0; i < 9; i++) {
-            similairImagesUrls.push(responseJson.responses[0].webDetection.visuallySimilarImages[i].url);
+            
+            if(responseJson.responses[0].webDetection.visuallySimilarImages[i] !== undefined) {similairImagesUrls.push(responseJson.responses[0].webDetection.visuallySimilarImages[i].url);
+            imageLabels.push(responseJson.responses[0].labelAnnotations[0].description);
+            }
+            
           }
 
 
           this.setState({
             googleResponse: responseJson,
             gettingAPIResponse: false,
-            similairImagesUrls: similairImagesUrls
+            similairImagesUrls: similairImagesUrls,
+            imageLabels: imageLabels
             
           });
+
+          this.props.changeCurrentStep(2);
+        
         } catch (error) {
           console.log(error);
         }
@@ -130,6 +133,7 @@ export default class UploadImage extends Component {
                             submitToCloudVisionAPI={this.submitToCloudVisionAPI}
                             googleResponse={this.state.googleResponse}
                             similairImagesUrls={this.state.similairImagesUrls}
+                            imageLabels={this.state.imageLabels}
                             />
                             
                       </div>

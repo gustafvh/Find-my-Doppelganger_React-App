@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./UploadImageButton.scss";
-import uploadIcon from "../../assets/icons/upload-icon.png"
+import uploadIcon from "../../assets/icons/upload-icon.png";
 
 export default class UploadImageButton extends Component {
 
