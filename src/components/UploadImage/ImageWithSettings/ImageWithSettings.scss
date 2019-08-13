@@ -75,3 +75,12 @@
 .settings-option--selected {
     background-color: #FCEA2B;
 }
+
+
+@media (max-width: 45rem) {
+    .container {
+        flex-direction: column;
+
+    }
+
+}

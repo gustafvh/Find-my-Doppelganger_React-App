@@ -3,6 +3,7 @@ import UploadImageButton from './UploadImageButton.js';
 import firebase from "../../config/firebase";
 import Environment from "../../config/environment";
 import "./LoadingIcon.scss";
+import "./UploadImage.scss";
 
 
 
@@ -138,7 +139,7 @@ export default class UploadImage extends Component {
                             
                       </div>
                     : <div>
-                        <img height="330px" src={emojis} alt="emojis"/>
+                        <img className="emoji-image" src={emojis} alt="emojis"/>
                         <UploadImageButton uploadToFirebaseStorage={this.uploadToFirebaseStorage} />
                      </div>}
             

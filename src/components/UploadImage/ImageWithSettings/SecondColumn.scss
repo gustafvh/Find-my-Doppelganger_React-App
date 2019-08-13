@@ -103,4 +103,16 @@
 }
 
 
-///
+@media (max-width: 45rem) {
+    .next-step__button {
+        font-size: 17px;
+        width: 330px;
+    }
+
+    .rendered-images__single-image {
+        height: 125px;
+        width: 125px;
+
+    }
+
+}

@@ -11,8 +11,7 @@ export default class Footer extends Component {
             
             <p className="footer-steps__container">
                 <span className={this.props.currentStep === 1  ? "active-step" : ""}>Upload</span> -
-                <span className={this.props.currentStep === 2  ? "active-step" : ""}> Compare</span>
-            </p>
+                <span className={this.props.currentStep === 2  ? "active-step" : ""}> Compare</span></p>
             <a className="footer_small-text" href="https//halco.se">Coded by Gustaf Halvardsson</a>
             
         </div>
