@@ -6,7 +6,7 @@ export default function Header() {
         <div className="header__container">
             <h3 className="header__small-title">Find my </h3> 
             <h1 className="header__big-title">Doppelgangers<span style={{color: "#FCEA2B"}}>.</span></h1> 
-            <a href="https//halco.se"> How does it work?</a>
+            <p href="https//halco.se">Find your look-alike from the web.</p>
         </div>
     )
 }
