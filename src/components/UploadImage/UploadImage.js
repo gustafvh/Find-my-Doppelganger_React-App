@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UploadImageButton from './UploadImageButton.js';
-import firebase from "../../config/firebase";
+import { storage } from "../../config/firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Environment from "../../config/environment";
 import "./LoadingIcon.scss";
 import "./UploadImage.scss";
@@ -36,10 +37,10 @@ export default class UploadImage extends Component {
       fileName = fileName.slice(12); 
 
       let fileToUpload = event.target.files[0]; 
-      let refNameInFirebase = firebase.storage().ref('UploadedImages/ppicture.jpg');
+      let refNameInFirebase = ref(storage, 'UploadedImages/ppicture.jpg');
       
-      const snapshot = await refNameInFirebase.put(fileToUpload);
-      const imageUrl = await snapshot.ref.getDownloadURL();
+      const snapshot = await uploadBytes(refNameInFirebase, fileToUpload);
+      const imageUrl = await getDownloadURL(snapshot.ref);
 
       this.setState({
         uploadedFileUrl: imageUrl,
