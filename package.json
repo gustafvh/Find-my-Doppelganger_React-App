@@ -5,11 +5,11 @@
   "dependencies": {
     "async": "^3.2.6",
     "firebase": "^12.2.1",
-    "node-sass": "^9.0.0",
     "normalize.css": "^8.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.1.0-next.26",
+    "sass": "^1.91.0",
     "uuid": "^11.1.0"
   },
   "scripts": {
